@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Moving Div Upwards</title>
+  <style>
+    #movingDiv {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="movingDiv">
+    <h1>hello</h1>
+  </div>
+
+  <script>
+    var div = document.getElementById('movingDiv');
+    var currentPosition = 0;
+    var targetPosition = 1000;
+    
+    var speed = 1; // Number of pixels to move per interval
+    var intervalTime = 10; // Interval duration in milliseconds
+
+    var moveInterval = setInterval(function() {
+      if (currentPosition > targetPosition) {
+        currentPosition -= speed;
+        div.style.top = currentPosition + 'px';
+      } else {
+        clearInterval(moveInterval);
+      }
+    }, intervalTime);
+  </script>
+</body>
+</html>
